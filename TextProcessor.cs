@@ -12,5 +12,21 @@ class TextProcessor {
     { "пка", "пока" },
     { "ппка", "пока" }
     };
-    
+
+  public void ProcessDirectory(string directoryPath) {
+    if (!Directory.Exists(directoryPath)) {
+      Console.WriteLine("Указанная директория не найдена.");
+      return;
+      }
+
+  string[] files = Directory.GetFiles(directoryPath, "*.txt");
+    foreach (string file in files) {
+      ProcessFile(file);
+    }
+  }   
+
+  private void ProcessFile(string filePath) {
+    string text = File.ReadAllText(filePath);
+
+  }
 }
