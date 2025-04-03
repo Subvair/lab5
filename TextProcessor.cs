@@ -29,6 +29,7 @@ class TextProcessor {
     string text = File.ReadAllText(filePath);
 
     text = CorrectMistakes(text);
+    text = ReplacePhoneNumbers(text);
 
     File.WriteAllText(filePath, text);
     Console.WriteLine($"Файл обработан: {filePath}");
@@ -38,5 +39,9 @@ class TextProcessor {
     foreach (var pair in mistakeDictionary) {
       text = text.Replace(pair.Key, pair.Value); }
       return text;
-  }  
+  }
+
+  private string ReplacePhoneNumbers(string text) {
+    return Regex.Replace(text, @"\((\d{3})\) (\d{3})-(\d{2})-(\d{2})", @"+380 $1 $2 $3 $4");
+  }
 }
