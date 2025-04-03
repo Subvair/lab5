@@ -28,5 +28,15 @@ class TextProcessor {
   private void ProcessFile(string filePath) {
     string text = File.ReadAllText(filePath);
 
+    text = CorrectMistakes(text);
+
+    File.WriteAllText(filePath, text);
+    Console.WriteLine($"Файл обработан: {filePath}");
   }
+
+  private string CorrectMistakes(string text) {
+    foreach (var pair in mistakeDictionary) {
+      text = text.Replace(pair.Key, pair.Value); }
+      return text;
+  }  
 }
