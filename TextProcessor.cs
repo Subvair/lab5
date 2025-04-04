@@ -11,13 +11,13 @@ class TextProcessor {
     { "пок", "пока" },
     { "пка", "пока" },
     { "ппка", "пока" }
-    };
+  };
 
   public void ProcessDirectory(string directoryPath) {
     if (!Directory.Exists(directoryPath)) {
       Console.WriteLine("Указанная директория не найдена.");
       return;
-      }
+    }
 
     string[] files = Directory.GetFiles(directoryPath, "*.txt");
     foreach (string file in files) {
@@ -37,8 +37,9 @@ class TextProcessor {
 
   private string CorrectMistakes(string text) {
     foreach (var pair in mistakeDictionary) {
-      text = text.Replace(pair.Key, pair.Value); }
-      return text;
+      text = text.Replace(pair.Key, pair.Value); 
+    }
+    return text;
   }
 
   private string ReplacePhoneNumbers(string text) {

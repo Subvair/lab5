@@ -9,5 +9,5 @@ class Program {
     processor.ProcessDirectory(directoryPath);
 
     Console.WriteLine("Готово!");
-    }
+  }
 }
