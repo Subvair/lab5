@@ -19,7 +19,7 @@ class TextProcessor {
       return;
       }
 
-  string[] files = Directory.GetFiles(directoryPath, "*.txt");
+    string[] files = Directory.GetFiles(directoryPath, "*.txt");
     foreach (string file in files) {
       ProcessFile(file);
     }
